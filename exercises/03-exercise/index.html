@@ -1,0 +1,921 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Customization by Govindarajan Vishnuchithan">
+      
+      
+        <link rel="canonical" href="https://govindsme.github.io/devops-cloud/exercises/03-exercise/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.6">
+    
+    
+      
+        <title>GitOps - Cloud & DevOps Tech Space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exercise-3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cloud &amp; DevOps Tech Space" class="md-header__button md-logo" aria-label="Cloud & DevOps Tech Space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud & DevOps Tech Space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GitOps
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/govindsme/DevOps-Cloud" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DevOps-Cloud
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cloud &amp; DevOps Tech Space" class="md-nav__button md-logo" aria-label="Cloud & DevOps Tech Space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Cloud & DevOps Tech Space
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/govindsme/DevOps-Cloud" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DevOps-Cloud
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Setup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/01-setup/" class="md-nav__link">
+        Setup Development Environment Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/02-setup-docker/" class="md-nav__link">
+        Install Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/03-setup-ansibe-module-dependencies/" class="md-nav__link">
+        Install Golang
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/04-setup-make/" class="md-nav__link">
+        Install Make
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/05-setup-oc-cli/" class="md-nav__link">
+        Setup Minikube
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Exercises
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Exercises" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Exercises
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-exercise/" class="md-nav__link">
+        CKA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-exercise/" class="md-nav__link">
+        CKS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          GitOps
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        GitOps
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preview" class="md-nav__link">
+    Preview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-quayio-account" class="md-nav__link">
+    Step 1: Create Quay.io Account
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-build-operator-image-and-push-to-quayio" class="md-nav__link">
+    Step 2: Build Operator image and push to quay.io
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-deploy-operator-to-openshift-cluster" class="md-nav__link">
+    Step 3: Deploy Operator to OpenShift Cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-deploy-a-helloworld-application-using-operator" class="md-nav__link">
+    Step 4: Deploy a Helloworld Application using Operator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-cleanup-application" class="md-nav__link">
+    Step 5: Cleanup Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-verify-the-operator-is-remaining-in-the-deployment-of-the-operator-helloworld-system-project" class="md-nav__link">
+    Step 6: Verify the operator is remaining in the deployment of the operator-helloworld-system project.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-cleanup-operator" class="md-nav__link">
+    Step 7: Cleanup Operator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-verify-the-operator-is-deleted" class="md-nav__link">
+    Step 8: Verify the operator is deleted
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Additional resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Additional resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Additional resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Operator resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Operator resources" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Operator resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://sdk.operatorframework.io/" class="md-nav__link">
+        Operator SDK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://operatorhub.io/?category=OpenShift+Optional" class="md-nav__link">
+        Operator Hub (OpenShift operators)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://operatorhub.io/?keyword=IBM" class="md-nav__link">
+        Operator Hub (IBM operators)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preview" class="md-nav__link">
+    Preview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-quayio-account" class="md-nav__link">
+    Step 1: Create Quay.io Account
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-build-operator-image-and-push-to-quayio" class="md-nav__link">
+    Step 2: Build Operator image and push to quay.io
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-deploy-operator-to-openshift-cluster" class="md-nav__link">
+    Step 3: Deploy Operator to OpenShift Cluster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-deploy-a-helloworld-application-using-operator" class="md-nav__link">
+    Step 4: Deploy a Helloworld Application using Operator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-cleanup-application" class="md-nav__link">
+    Step 5: Cleanup Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-verify-the-operator-is-remaining-in-the-deployment-of-the-operator-helloworld-system-project" class="md-nav__link">
+    Step 6: Verify the operator is remaining in the deployment of the operator-helloworld-system project.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-cleanup-operator" class="md-nav__link">
+    Step 7: Cleanup Operator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-verify-the-operator-is-deleted" class="md-nav__link">
+    Step 8: Verify the operator is deleted
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/govindsme/DevOps-Cloud/edit/master/documentation/exercises/03-exercise.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="exercise-3">Exercise 3<a class="headerlink" href="#exercise-3" title="Permanent link">&para;</a></h1>
+<p>In this exercise you will complete the following:</p>
+<ul>
+<li>Create a <a href="https://quay.io/">Quay.io</a> account</li>
+<li>Build image of our Operator and push it to <a href="https://quay.io/">Quay.io</a></li>
+<li>Deploy Operator to OpenShift cluster</li>
+</ul>
+<h3 id="preview">Preview<a class="headerlink" href="#preview" title="Permanent link">&para;</a></h3>
+<p>Here you can see an example deployment of the <code>HelloWorld operator</code> we will create in this exercise, by using an existing container image from the <a href="https://quay.io/">Quay.io</a> container registry and then we create a new <code>HellowWorld</code> application using the operator inside your RedHat OpenShift Cluster:</p>
+<ul>
+<li>Deploy operator gif:</li>
+</ul>
+<p><img alt="" src="../../images/ex-3-01-deploy-operator.gif" /></p>
+<ul>
+<li>Create HelloWorld app using the operator gif:</li>
+</ul>
+<p><img alt="" src="../../images/ex-3-02-create-app-operator.gif" /></p>
+<h3 id="step-1-create-quayio-account">Step 1: Create Quay.io Account<a class="headerlink" href="#step-1-create-quayio-account" title="Permanent link">&para;</a></h3>
+<p>Quay.io us a container registry provided by Red Hat. You can create your own account push container images to it. Each image can be public or private. To make images available to OpenShift you will need to make them public.</p>
+<p>Go to <a href="https://quay.io/">Quay.io</a> and create your own account if you don't have one and then login to <a href="https://quay.io/">Quay.io</a>.</p>
+<div class="highlight"><pre><span></span><code>docker login quay.io
+</code></pre></div>
+<h3 id="step-2-build-operator-image-and-push-to-quayio">Step 2: Build Operator image and push to quay.io<a class="headerlink" href="#step-2-build-operator-image-and-push-to-quayio" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo make docker-build docker-push <span class="nv">IMG</span><span class="o">=</span>quay.io/ktenzer/operator-helloworld:latest
+</code></pre></div>
+<p>Make the <code>operator-helloworld</code> image in your quay.io account public. Logon to quya.io, click on the image. Under `settings (on the left) there is option to make the image public.</p>
+<p><img alt="" src="../../images/ex-3-00.png" /></p>
+<h3 id="step-3-deploy-operator-to-openshift-cluster">Step 3: Deploy Operator to OpenShift Cluster<a class="headerlink" href="#step-3-deploy-operator-to-openshift-cluster" title="Permanent link">&para;</a></h3>
+<p>By default the operator will be deployed to a project called <code>operator-helloworld-system</code>. The operator is called <code>operator-helloworld-controller-manager</code>.</p>
+<div class="highlight"><pre><span></span><code>make deploy <span class="nv">IMG</span><span class="o">=</span>quay.io/ktenzer/operator-helloworld:latest
+</code></pre></div>
+<p>As you see in the example output, we create or configure ...</p>
+<ul>
+<li>... Namespace</li>
+<li>... Custom resource</li>
+<li>... <a href="https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-leader-election.html">Leader election role</a></li>
+<li>... Manager Role</li>
+<li>... Proxy Role</li>
+<li>... Metrixs reader</li>
+<li>... <a href="https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-leader-election.html">Leader election role</a> binding</li>
+<li>... Manager role binding</li>
+<li>... Proxy role binding</li>
+<li>... Controller Manager metrics service</li>
+<li>... Controller Manager</li>
+</ul>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> config/manager <span class="o">&amp;&amp;</span> /home/ubuntu/operator-helloworld/bin/kustomize edit <span class="nb">set</span> image <span class="nv">controller</span><span class="o">=</span>quay.io/ktenzer/operator-helloworld:latest
+/home/ubuntu/operator-helloworld/bin/kustomize build config/default <span class="p">|</span> kubectl apply -f -
+namespace/operator-helloworld-system created
+customresourcedefinition.apiextensions.k8s.io/hellos.cache.hello.example.com created
+role.rbac.authorization.k8s.io/operator-helloworld-leader-election-role created
+clusterrole.rbac.authorization.k8s.io/operator-helloworld-manager-role created
+clusterrole.rbac.authorization.k8s.io/operator-helloworld-metrics-reader created
+clusterrole.rbac.authorization.k8s.io/operator-helloworld-proxy-role created
+rolebinding.rbac.authorization.k8s.io/operator-helloworld-leader-election-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/operator-helloworld-manager-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/operator-helloworld-proxy-rolebinding created
+service/operator-helloworld-controller-manager-metrics-service created
+deployment.apps/operator-helloworld-controller-manager created
+</code></pre></div>
+<p><em>Note:</em> You can change <code>project name</code> by editing the <code>config/default/kustomization.yaml</code> file.</p>
+<p><img alt="" src="../../images/ex-3-01.png" /></p>
+<ul>
+<li>Verify Operator Deployment</li>
+</ul>
+<div class="highlight"><pre><span></span><code>oc get deployment -n operator-helloworld-system
+</code></pre></div>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code>NAME                            READY   UP-TO-DATE   AVAILABLE   AGE
+helloworld-controller-manager   <span class="m">1</span>/1     <span class="m">1</span>            <span class="m">1</span>           37s
+</code></pre></div>
+<p><em>Optional:</em> Open your RedHat OpenShift web console select <code>Developer perspective</code> and <code>Topology</code>. Ensure you are in the <code>operator-helloworld-system</code> project.</p>
+<p><img alt="" src="../../images/ex-3-02.png" /></p>
+<h3 id="step-4-deploy-a-helloworld-application-using-operator">Step 4: Deploy a <code>Helloworld Application</code> using Operator<a class="headerlink" href="#step-4-deploy-a-helloworld-application-using-operator" title="Permanent link">&para;</a></h3>
+<p>Using the Operator we just deployed into the <code>operator-helloworld-system</code> project we will now deploy the application using CR.</p>
+<ul>
+<li>Create the application using the operator</li>
+</ul>
+<div class="highlight"><pre><span></span><code>oc create -f config/samples/cache_v1_hello.yaml -n operator-helloworld-system
+</code></pre></div>
+<ul>
+<li>Get the deploment information from the project</li>
+</ul>
+<div class="highlight"><pre><span></span><code>oc get deployment -n operator-helloworld-system
+</code></pre></div>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code>NAME                            READY   UP-TO-DATE   AVAILABLE   AGE
+helloworld                      1/1     1            1           12m
+helloworld-controller-manager   1/1     1            1           12m
+</code></pre></div>
+<p><em>Optional:</em> Open your RedHat OpenShift web console select <code>Developer perspective</code> and <code>Topology</code>. Ensure you are in the <code>operator-helloworld-system</code> project.</p>
+<p><img alt="" src="../../images/ex-3-03.png" /></p>
+<p><em>Optional:</em> Open your RedHat OpenShift web console select <code>Administrator perspective</code> and <code>Custom Resource Definition</code> </p>
+<ul>
+<li>Search for <code>Hello</code> and press CRD <code>Hello</code></li>
+</ul>
+<p><img alt="" src="../../images/ex-3-05.png" /></p>
+<p>Now you see the two two created <code>hello-sample</code>s.</p>
+<ul>
+<li>One in the project <code>operator-helloworld</code> created the operator running on the local machine</li>
+<li>One in the project <code>operator-helloworld-system</code> created by the <code>helloworld-controller-manager</code> in the RedHat OpenShift Cluster</li>
+</ul>
+<p><img alt="" src="../../images/ex-3-04.png" /></p>
+<h3 id="step-5-cleanup-application">Step 5: Cleanup Application<a class="headerlink" href="#step-5-cleanup-application" title="Permanent link">&para;</a></h3>
+<p>Removing the CR will delete everything that was created by it <code>since</code> the objects are linked to the CR. </p>
+<div class="highlight"><pre><span></span><code>oc delete hello hello-sample -n operator-helloworld-system
+</code></pre></div>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code>hello.cache.hello.example.com <span class="s2">&quot;hello-sample&quot;</span> deleted
+</code></pre></div>
+<p>You see there is one remaining.</p>
+<p><img alt="" src="../../images/ex-3-06.png" /></p>
+<h3 id="step-6-verify-the-operator-is-remaining-in-the-deployment-of-the-operator-helloworld-system-project">Step 6: Verify the operator is remaining in the deployment of the <code>operator-helloworld-system</code> project.<a class="headerlink" href="#step-6-verify-the-operator-is-remaining-in-the-deployment-of-the-operator-helloworld-system-project" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>oc get deployment -n operator-helloworld-system
+</code></pre></div>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code>NAME                                     READY   UP-TO-DATE   AVAILABLE   AGE
+operator-helloworld-controller-manager   <span class="m">1</span>/1     <span class="m">1</span>            <span class="m">1</span>           153m
+</code></pre></div>
+<h3 id="step-7-cleanup-operator">Step 7: Cleanup Operator<a class="headerlink" href="#step-7-cleanup-operator" title="Permanent link">&para;</a></h3>
+<p>This will remove the Operator, CRD and all the roles.</p>
+<div class="highlight"><pre><span></span><code>make undeploy
+</code></pre></div>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code>/home/ubuntu/operator-helloworld/bin/kustomize build config/default <span class="p">|</span> kubectl delete -f -
+namespace <span class="s2">&quot;operator-helloworld-system&quot;</span> deleted
+customresourcedefinition.apiextensions.k8s.io <span class="s2">&quot;hellos.cache.hello.example.com&quot;</span> deleted
+role.rbac.authorization.k8s.io <span class="s2">&quot;operator-helloworld-leader-election-role&quot;</span> deleted
+clusterrole.rbac.authorization.k8s.io <span class="s2">&quot;operator-helloworld-manager-role&quot;</span> deleted
+clusterrole.rbac.authorization.k8s.io <span class="s2">&quot;operator-helloworld-metrics-reader&quot;</span> deleted
+clusterrole.rbac.authorization.k8s.io <span class="s2">&quot;operator-helloworld-proxy-role&quot;</span> deleted
+rolebinding.rbac.authorization.k8s.io <span class="s2">&quot;operator-helloworld-leader-election-rolebinding&quot;</span> deleted
+clusterrolebinding.rbac.authorization.k8s.io <span class="s2">&quot;operator-helloworld-manager-rolebinding&quot;</span> deleted
+clusterrolebinding.rbac.authorization.k8s.io <span class="s2">&quot;operator-helloworld-proxy-rolebinding&quot;</span> deleted
+service <span class="s2">&quot;operator-helloworld-controller-manager-metrics-service&quot;</span> deleted
+deployment.apps <span class="s2">&quot;operator-helloworld-controller-manager&quot;</span> deleted
+</code></pre></div>
+<h3 id="step-8-verify-the-operator-is-deleted">Step 8: Verify the operator is deleted<a class="headerlink" href="#step-8-verify-the-operator-is-deleted" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code>oc get deployment -n operator-helloworld-system
+</code></pre></div>
+Example output:</p>
+<div class="highlight"><pre><span></span><code>No resources found <span class="k">in</span> operator-helloworld-system namespace.
+</code></pre></div>
+<p>You can also verify the <code>Customer Resource Definition</code> for <code>hello</code> in the web console.</p>
+<p><img alt="" src="../../images/ex-3-07.png" /></p>
+<p><strong>Congrats</strong>, if you got this far you are ready to write your own Operators in Ansible!</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../02-exercise/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CKS" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              CKS
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a877e258.min.js"></script>
+      
+    
+  </body>
+</html>
