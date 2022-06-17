@@ -1,11 +1,11 @@
 # Project information
-site_name: Hello World! Operator
-site_url: https://thomassuedbroecker.github.io/operator-helloworld
-site_author: Customization by Thomas Südbröcker (Keith Tenzer)
+site_name: Cloud & DevOps Tech Space
+site_url: https://govindsme.github.io/devops-cloud
+site_author: Customization by Govindarajan Vishnuchithan
 
 # Repository
-repo_name: operator-helloworld
-repo_url: https://github.com/thomassuedbroecker/operator-helloworld
+repo_name: DevOps-Cloud
+repo_url: https://github.com/govindsme/DevOps-Cloud
 edit_uri: edit/master/documentation
 docs_dir: documentation
 
